@@ -1,0 +1,61 @@
+*autoflake* *autoflake.vim* author: tenfyzhong
+
+This help file explains the autoflake.vim Vim Plugin.
+================================================================================
+Contents:
+0. Introduction ---------------------------------------- |autoflake-introduction|
+1. Install --------------------------------------------- |autoflake-install|
+2. Usage ----------------------------------------------- |autoflake-usage|
+3. Tips ------------------------------------------------ |autoflake-tips|
+4. LICENSE --------------------------------------------- |autoflake-license|
+
+================================================================================
+0. Introduction                                          *autoflake-introduction*
+The autoflake.vim is a plugin to execute autoflake in the vim. It offer a
+command named |Autoflake| to execute the autoflake program in-place. The
+command can take a `!` modifier, it will show the diff in a new window named
+autoflake. Besides, the command can take some arguments like the autoflake
+program. Supported argument has `--expand-start-imports`,
+    `--remove-all-unused-imports`, `--ignore-init-module-imports`,
+    `--remove-duplicate-keys`, `--remove-unused-variables`. 
+
+================================================================================
+1. Install                                                    *autoflake-install*
+I suggest you to use a plugin manager, such vim-plug or others.
+- [vim-plug](https://github.com/junegunn/vim-plug) >
+  Plug 'tenfyzhong/autoflake.vim', {'do': 'pip install autoflake'}
+<
+
+- Manual >
+  git clone https://github.com/tenfyzhong/autoflake.vim.git ~/.vim/bundle/autoflake.vim
+  echo 'set rtp+=~/.vim/bundle/autoflake.vim' >> ~/.vimrc
+  vim -c 'helptag ~/.vim/bundle/autoflake.vim/doc' -c qa!
+<
+
+================================================================================
+2. Usage                                                        *autoflake-usage*
+2.1 Command                                                   *autoflake-command*
+:Autoflake[!]                                                         *Autoflake*
+Execute autoflake in-place. If it takes a `!`, it will show the diff result in
+a new window. The command support below arguments:
+`--expand-star-imports`
+`--remove-all-unused-imports`
+`--ignore-init-module-imports`
+`--remove-duplicate-keys` 
+`--remove-unused-variables`
+
+================================================================================
+3. Tips                                                          *autoflake-tips*
+If you want to run the Autoflake command before writting automatic. You can add
+a autocmd to your vimrc like: >
+augroup autoflake_vim_init
+  autocmd BufWritePre *.py silent Autoflake --expand-star-imports 
+    \ --remove-all-unused-imports --remove-duplicate-keys
+augroup end
+<
+
+================================================================================
+4. LICENSE                                                    *autoflake-license*
+MIT License Copyright (c) 2019 tenfyzhong
+
+" vim:ft=help:iskeyword+=-:iskeyword+=58:iskeyword+=#
