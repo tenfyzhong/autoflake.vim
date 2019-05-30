@@ -1,4 +1,7 @@
 # autoflake.vim
+[![GitHub tag](https://img.shields.io/github/tag/tenfyzhong/autoflake.vim.svg)](https://github.com/tenfyzhong/autoflake.vim/tags)
+[![doc](https://img.shields.io/badge/doc-%3Ah%20autoflake-yellow.svg?style=flat)](https://github.com/tenfyzhong/autoflake.vim/blob/master/doc/autoflake.txt)
+
 The autoflake.vim is a plugin to execute autoflake in the vim. It offer a
 command named `Autoflake` to execute the autoflake program in-place. The
 command can take a `!` modifier, it will show the diff in a new window named
